@@ -6,7 +6,7 @@ const path = require('path');
 const fs = require('fs');
 const icongen = require( 'icon-gen' );
 
-var pngSizes = [16, 24, 32, 48, 64, 128, 256, 512, 1024];
+const pngSizes = [16, 24, 32, 48, 64, 128, 256, 512, 1024];
 
 args
     .option('input', 'Input PNG file. Recommended (1024x1024)', './icon.png')
@@ -16,11 +16,11 @@ const flags = args.parse(process.argv);
 console.log(flags);
 
 // correct paths
-var input = path.resolve(process.cwd(), flags.input);
-var output = path.resolve(process.cwd(), flags.output);
-var o = output;
-var oSub = o.endsWith('/') ? o + 'icons/' : o + '/icons/';
-var PNGoutputDir = oSub + 'png/';
+const input = path.resolve(process.cwd(), flags.input);
+const output = path.resolve(process.cwd(), flags.output);
+const o = output;
+const oSub = o.endsWith('/') ? o + 'icons/' : o + '/icons/';
+const PNGoutputDir = oSub + 'png/';
 
 const iconOptions = {
     type: 'png',
