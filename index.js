@@ -9,8 +9,8 @@ const icongen = require( 'icon-gen' );
 const pngSizes = [16, 24, 32, 48, 64, 128, 256, 512, 1024];
 
 args
-    .option('input', 'Input PNG file. Recommended (1024x1024)', './icon.png')
-    .option('output', 'Folder to output new icons folder', './');
+    .option(['i', 'input'], 'Input PNG file. Recommended (1024x1024)', './icon.png')
+    .option(['o', 'output'], 'Folder to output new icons folder', './');
 
 const flags = args.parse(process.argv);
 console.log(flags);
