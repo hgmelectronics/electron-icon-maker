@@ -16,10 +16,12 @@ const run = async () => {
 
     const flags = args.parse(process.argv);
 
-    for (const p of [flags.input, flags.output]) {
-        if(!await promisify(fs.exists)(p)) {
-            throw p + ' does not exist, exiting';
-        }
+    if(!await promisify(fs.exists)(flags.input)) {
+        throw `${flags.input} does not exist, exiting`;
+    }
+
+    if(!await promisify(fs.exists)(flags.output)) {
+        await promisify(fs.mkdir)(flags.output);
     }
 
     const outputBase = flags.ebuild ? flags.output : path.join(flags.output, 'icons');
